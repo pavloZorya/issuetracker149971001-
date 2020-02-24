@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_navigation"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.pavlo.zoria.navigationbug149971001.HomeFragment"
+        android:label="homeFragment"
+        tools:layout="@layout/fragment_home">
+
+        <action
+            android:id="@+id/action_open_info_fragment"
+            app:destination="@id/bottomSheetHint" />
+    </fragment>
+
+
+    <dialog
+        android:id="@+id/bottomSheetHint"
+        android:name="com.pavlo.zoria.navigationbug149971001.info.RoundedBottomSheetDialog"
+        android:label="bottomSheetHint"
+        tools:layout="@layout/information_fragment">
+
+        <!--problem is here-->
+        <!--comment out
+            android:defaultValue="1" and everything will work-->
+        <argument
+            android:name="hintId"
+            android:label="bottomSheetHint"
+            android:defaultValue="1"
+            app:argType="integer" />
+    </dialog>
+
+</navigation>
